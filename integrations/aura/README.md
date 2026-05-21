@@ -38,8 +38,12 @@ print(v.ok)        # True for trusted/caution
 
 # v.dimensions tells you *which* axis is weak, not just the aggregate:
 if v.dimensions and v.dimensions.get("financial_integrity", 1) < 0.4:
-    require_manual_review()
+    require_manual_review()   # placeholder for your own policy
 ```
+
+> `v.ok` reflects the *verdict class* (True for `trusted`/`caution`), not the
+> outcome of `require_trust()` — the gate's default `allow` also lets `new`
+> through. Use the gate's return/raise for the decision, `v.ok` for display.
 
 ## Verdicts
 
